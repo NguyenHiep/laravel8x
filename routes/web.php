@@ -16,3 +16,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/product', function () {
+    $products = [];
+    for($i = 0; $i <= 35; $i++ ){
+        $products[] = $i;
+    }
+    return view('product')->with(['products' => $products, 'isLazyLoad' => true]);
+});
